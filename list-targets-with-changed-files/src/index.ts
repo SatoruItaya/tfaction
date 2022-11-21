@@ -53,7 +53,6 @@ function getPRBody(): string {
 
 try {
   const config = lib.getConfig();
-  console.log("config " + config)
 
   const isApply = lib.getIsApply();
 
@@ -98,6 +97,10 @@ try {
   const tfmigratePrefix = (config.label_prefixes != undefined && config.label_prefixes.tfmigrate != undefined && config.label_prefixes.tfmigrate != '') ?
     config.label_prefixes.tfmigrate : 'tfmigrate:';
 
+  //undefined
+  //console.log(config.label_prefixes)
+  //console.log(config.label_prefixes.tfmigrate)
+
   // debug
   for (let i = 0; i < labels.length; i++) {
         console.log(labels[i]);
@@ -116,6 +119,7 @@ try {
       if (!terraformTargets.has(target)) {
         terraformTargets.add(target);
         terraformTargetObjs.push(getTargetConfigByTarget(config.target_groups, target, isApply, 'terraform'));
+        console.log("terraformTargetObjs " + terraformTargetObjs )
       }
       continue;
     }
@@ -156,6 +160,7 @@ try {
         if (!terraformTargets.has(changedTarget) && !tfmigrates.has(changedTarget)) {
           terraformTargets.add(changedTarget);
           terraformTargetObjs.push(getTargetConfigByTarget(config.target_groups, changedTarget, isApply, 'terraform'));
+          console.log("!changedTarget " + terraformTargetObjs)
         }
         break;
       }
@@ -165,6 +170,7 @@ try {
   if (followupTarget && !tfmigrates.has(followupTarget) && !terraformTargets.has(followupTarget)) {
     terraformTargets.add(followupTarget);
     terraformTargetObjs.push(getTargetConfigByTarget(config.target_groups, followupTarget, isApply, 'terraform'));
+    console.log("!followupTarget " + terraformTargetObjs)
   }
 
   console.log("tfmigrateObjs " + tfmigrateObjs)
