@@ -174,6 +174,7 @@ try {
   }
 
   console.log("tfmigrateObjs " + tfmigrateObjs)
+  console.log("terraformTargetObjs " + terraformTargetObjs)
   core.setOutput('tfmigrate_targets', tfmigrateObjs);
   core.setOutput('terraform_targets', terraformTargetObjs);
 } catch (error) {
