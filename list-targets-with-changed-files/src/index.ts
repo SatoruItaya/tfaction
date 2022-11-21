@@ -53,6 +53,7 @@ function getPRBody(): string {
 
 try {
   const config = lib.getConfig();
+  console.log("config " + config)
 
   const isApply = lib.getIsApply();
 

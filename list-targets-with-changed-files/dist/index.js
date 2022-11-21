@@ -13689,6 +13689,7 @@ function getPRBody() {
 }
 try {
     const config = lib.getConfig();
+    console.log("config " + config);
     const isApply = lib.getIsApply();
     const configWorkingDirMap = new Map();
     const configTargetMap = new Map();
