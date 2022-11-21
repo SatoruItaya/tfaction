@@ -13726,6 +13726,10 @@ try {
         config.label_prefixes.skip : 'skip:';
     const tfmigratePrefix = (config.label_prefixes != undefined && config.label_prefixes.tfmigrate != undefined && config.label_prefixes.tfmigrate != '') ?
         config.label_prefixes.tfmigrate : 'tfmigrate:';
+    // debug
+    for (let i = 0; i < labels.length; i++) {
+        console.log("ログ出力");
+    }
     for (let i = 0; i < labels.length; i++) {
         const label = labels[i];
         if (label == '') {
