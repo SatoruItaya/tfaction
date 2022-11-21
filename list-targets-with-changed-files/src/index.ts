@@ -98,8 +98,9 @@ try {
     config.label_prefixes.tfmigrate : 'tfmigrate:';
 
   // debug
+  console.log("ログ出力");
   for (let i = 0; i < labels.length; i++) {
-        console.log("ログ出力");
+        console.log(labels[i]);
   }
 
   for (let i = 0; i < labels.length; i++) {
