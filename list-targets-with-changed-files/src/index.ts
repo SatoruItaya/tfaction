@@ -98,10 +98,12 @@ try {
     config.label_prefixes.tfmigrate : 'tfmigrate:';
 
   // debug
-  console.log("ログ出力");
   for (let i = 0; i < labels.length; i++) {
         console.log(labels[i]);
   }
+  
+  console.log("tfmigratePrefix")
+  console.log(tfmigratePrefix)
 
   for (let i = 0; i < labels.length; i++) {
     const label = labels[i];
@@ -117,8 +119,10 @@ try {
       continue;
     }
     if (label.startsWith(tfmigratePrefix)) {
+        console.log("IfStartsWith " + label)
       const target = label.slice(tfmigratePrefix.length);
       if (!tfmigrates.has(target)) {
+          console.log("if!hasTarget " + label)
         tfmigrates.add(target);
         tfmigrateObjs.push(getTargetConfigByTarget(config.target_groups, target, isApply, 'tfmigrate'));
       }
@@ -162,6 +166,7 @@ try {
     terraformTargetObjs.push(getTargetConfigByTarget(config.target_groups, followupTarget, isApply, 'terraform'));
   }
 
+  console.log("tfmigrateObjs " + tfmigrateObjs)
   core.setOutput('tfmigrate_targets', tfmigrateObjs);
   core.setOutput('terraform_targets', terraformTargetObjs);
 } catch (error) {
