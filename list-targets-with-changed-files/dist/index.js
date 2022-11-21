@@ -13733,8 +13733,8 @@ try {
     for (let i = 0; i < labels.length; i++) {
         console.log(labels[i]);
     }
-    console.log("tfmigratePrefix");
-    console.log(tfmigratePrefix);
+    console.log("targetPrefix");
+    console.log(targetPrefix);
     for (let i = 0; i < labels.length; i++) {
         const label = labels[i];
         if (label == '') {
